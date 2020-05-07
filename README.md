@@ -92,9 +92,10 @@
 
   ```javascript
     $.ajax({
-      url: "/users/?search=Fedor",
+      url: "/users/?id=12",
       dataType: "json",
-      type : "GET",
+      type : "POST",
+      data : {name: "Inna"}
       success : function(r) {
         console.log(r);
       }
