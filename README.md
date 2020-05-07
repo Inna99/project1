@@ -101,7 +101,7 @@
     });
   ```
   
-  **Search User**
+ **Search User**
 ----
   Returns json data users after search.
 
