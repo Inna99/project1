@@ -51,7 +51,57 @@
   ```
 
 
-**Search User**
+**Edit User**
+----
+  Edit user data.
+
+* **URL**
+
+  /users/:id
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `id=[integer]`
+
+* **Data Params**
+
+  {}
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ message : "success" }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "User doesn't exist" }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "You are unauthorized to make this request." }`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: "/users/?search=Fedor",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
+  
+  **Search User**
 ----
   Returns json data users after search.
 
