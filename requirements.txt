@@ -1,0 +1,3 @@
+aoihttp==3.6.2
+SQLAlchemy==1.3.16
+aiopg==1.0.0
