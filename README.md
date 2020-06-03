@@ -6,7 +6,7 @@
 
 * **URL**
 
-  /users/:id
+  /users/?=id
 
 * **Method:**
 
