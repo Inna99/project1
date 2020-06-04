@@ -28,6 +28,8 @@ class SQLUser:
             cursor = await conn.execute(ins)
 
     async def show_user(self, request):
+        user_id = request.rel_url.query['user_id']
+        print(user_id)
         """  Returns json data about a single user  """
         async with request.app['db'].acquire() as conn:
             ins = db.user.select().where(db.user.c.id > 0)
@@ -64,9 +66,8 @@ app.on_startup.append(init_pg)
 app.on_cleanup.append(close_pg)
 app.add_routes([web.get('/', SQLUser.handle),
                 web.post('/login/', sql_user.login),
-                web.get('/users/{}/'.format(1), sql_user.show_user),
-                web.post('/users/{}/'.format(1), sql_user.edit_user),
-                web.get('/users/', sql_user.search_user),
+                web.get('/users/', sql_user.show_user),
+                web.post('/users/', sql_user.edit_user),
                 web.post('/add_user/', sql_user.insert_user),
                 web.post('/delete_user/', sql_user.delete_user),
                 ])
